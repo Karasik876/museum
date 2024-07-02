@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Collect static files"
 python manage.py collectstatic --noinput
 
@@ -8,5 +8,4 @@ do
   echo "Waiting for db to be ready..."
   sleep 2
 done
-
 exec "$@"
