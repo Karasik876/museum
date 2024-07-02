@@ -38,12 +38,14 @@ COPY --from=builder /usr/src/app/requirements.txt ./
 RUN pip install --upgrade pip
 RUN pip install --no-cache /wheels/*
 
-COPY ./entrypoint.sh ./
-COPY ./ $APP_HOME
+COPY --from=builder /usr/src/app/entrypoint.sh /home/app/web/entrypoint.sh
+COPY --from=builder /usr/src/app /home/app/web
 
 RUN chown -R app:app /$APP_HOME
-RUN chmod +x $APP_HOME/entrypoint.sh
+RUN chmod +x entrypoint.sh
 RUN chmod -R 777 $APP_HOME/static
+
+RUN ls -la /home/app/web  # Добавлено для диагностики
 
 USER app
 
