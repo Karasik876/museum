@@ -299,8 +299,8 @@ REST_FRAMEWORK = {
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=5),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=3),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
     "UPDATE_LAST_LOGIN": True,
     #"USER_AUTHENTICATION_RULE": "accounts.auth.default_user_authentication_rule",
 }
