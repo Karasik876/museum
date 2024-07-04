@@ -6,16 +6,19 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('collection', '0002_alter_collectionitem_options_and_more'),
+        ("collection", "0002_alter_collectionitem_options_and_more"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='collection',
-            options={'verbose_name': 'Коллекция', 'verbose_name_plural': 'Коллекции'},
+            name="collection",
+            options={"verbose_name": "Коллекция", "verbose_name_plural": "Коллекции"},
         ),
         migrations.AlterModelOptions(
-            name='usercollection',
-            options={'verbose_name': 'Коллекция пользователей', 'verbose_name_plural': 'Коллекции пользователей'},
+            name="usercollection",
+            options={
+                "verbose_name": "Коллекция пользователей",
+                "verbose_name_plural": "Коллекции пользователей",
+            },
         ),
     ]

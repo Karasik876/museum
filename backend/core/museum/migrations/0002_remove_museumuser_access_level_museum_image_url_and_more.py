@@ -6,57 +6,57 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('museum', '0001_initial'),
+        ("museum", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='museumuser',
-            name='access_level',
+            model_name="museumuser",
+            name="access_level",
         ),
         migrations.AddField(
-            model_name='museum',
-            name='image_url',
+            model_name="museum",
+            name="image_url",
             field=models.CharField(max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_add_users',
+            model_name="museumuser",
+            name="can_add_users",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_change_address',
+            model_name="museumuser",
+            name="can_change_address",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_change_description',
+            model_name="museumuser",
+            name="can_change_description",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_change_name',
+            model_name="museumuser",
+            name="can_change_name",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_change_short_name',
+            model_name="museumuser",
+            name="can_change_short_name",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_change_user_permissions',
+            model_name="museumuser",
+            name="can_change_user_permissions",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='can_delete_users',
+            model_name="museumuser",
+            name="can_delete_users",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='museumuser',
-            name='is_owner',
+            model_name="museumuser",
+            name="is_owner",
             field=models.BooleanField(default=False),
         ),
     ]

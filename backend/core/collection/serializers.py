@@ -11,22 +11,22 @@ User = get_user_model()
 class UserCollectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CollectionItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CollectionItem
-        fields = '__all__'
+        fields = "__all__"
 
 
 class CollectionCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
-        fields = '__all__'
+        fields = "__all__"
 
 
 class UserCollectionCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserCollection
-        fields = ('user', 'collection')
+        fields = ("user", "collection")

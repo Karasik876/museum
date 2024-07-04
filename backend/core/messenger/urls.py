@@ -11,6 +11,4 @@ router.register("messages", MessageViewSet)
 
 app_name = "messanger"
 urlpatterns = router.urls
-urlpatterns += [
-    path("auth/wslogin", AsgiValidateTokenView.as_view())
-]
+urlpatterns += [path("auth/wslogin", AsgiValidateTokenView.as_view())]

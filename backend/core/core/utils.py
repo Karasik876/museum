@@ -16,14 +16,14 @@ def delete_cache(key_prefix: str):
 @app.task
 def upload_image(img, app: str, with_celery=True):
     if with_celery:
-        img = io.BytesIO(base64.b64decode(img.decode(encoding='utf-8')))
-    key = f'{app}/{uuid.uuid4()}.png'
+        img = io.BytesIO(base64.b64decode(img.decode(encoding="utf-8")))
+    key = f"{app}/{uuid.uuid4()}.png"
     session = boto3.session.Session()
     s3 = session.client(
-        service_name='s3',
+        service_name="s3",
         endpoint_url=settings.AWS_ENDPOINT_URL,
         aws_access_key_id=settings.AWS_ACCESS,
         aws_secret_access_key=settings.AWS_SECRET,
     )
-    s3.put_object(Body=img, Bucket='digital-portfolio', Key=key)
-    return f'{settings.AWS_URL}{key}'
+    s3.put_object(Body=img, Bucket="digital-portfolio", Key=key)
+    return f"{settings.AWS_URL}{key}"

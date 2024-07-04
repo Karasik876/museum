@@ -8,43 +8,69 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('collection', '0001_initial'),
+        ("collection", "0001_initial"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='collectionitem',
-            options={'verbose_name': 'Изображение коллекций', 'verbose_name_plural': 'Изображения коллекций'},
+            name="collectionitem",
+            options={
+                "verbose_name": "Изображение коллекций",
+                "verbose_name_plural": "Изображения коллекций",
+            },
         ),
         migrations.AlterModelOptions(
-            name='usercollection',
-            options={'verbose_name': 'Коллекция музея', 'verbose_name_plural': 'Коллекции музеев'},
+            name="usercollection",
+            options={
+                "verbose_name": "Коллекция музея",
+                "verbose_name_plural": "Коллекции музеев",
+            },
         ),
         migrations.AddField(
-            model_name='museumcollection',
-            name='is_visible',
+            model_name="museumcollection",
+            name="is_visible",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='usercollection',
-            name='is_visible',
+            model_name="usercollection",
+            name="is_visible",
             field=models.BooleanField(default=True),
         ),
         migrations.CreateModel(
-            name='MuseumCollectionUser',
+            name="MuseumCollectionUser",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('joined_at', models.DateTimeField(auto_now_add=True)),
-                ('can_add_item', models.BooleanField(default=False)),
-                ('can_delete_item', models.BooleanField(default=False)),
-                ('can_change_item', models.BooleanField(default=False)),
-                ('collection', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='collection.museumcollection')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("joined_at", models.DateTimeField(auto_now_add=True)),
+                ("can_add_item", models.BooleanField(default=False)),
+                ("can_delete_item", models.BooleanField(default=False)),
+                ("can_change_item", models.BooleanField(default=False)),
+                (
+                    "collection",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="collection.museumcollection",
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Редактор коллекций музеев',
-                'verbose_name_plural': 'Редакторы коллекций музеев',
+                "verbose_name": "Редактор коллекций музеев",
+                "verbose_name_plural": "Редакторы коллекций музеев",
             },
         ),
     ]

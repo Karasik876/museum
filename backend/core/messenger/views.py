@@ -28,7 +28,9 @@ class MessageViewSet(ListModelMixin, GenericViewSet):
     def get_queryset(self):
         conversation_name = self.request.GET.get("conversation")
         queryset = (
-            Message.objects.filter(conversation__name__contains=str(self.request.user.id),)
+            Message.objects.filter(
+                conversation__name__contains=str(self.request.user.id),
+            )
             .filter(conversation__name=conversation_name)
             .order_by("-timestamp")
         )

@@ -7,6 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/dev/howto/deployment/asgi/
 
 """
+
 import os
 import sys
 from pathlib import Path
@@ -26,7 +27,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
 django_application = get_asgi_application()
 
 # Import websocket application here, so apps from django_application are loaded first
-from .routing import websocket_urlpatterns # noqa isort:skip
+from .routing import websocket_urlpatterns  # noqa isort:skip
 from channels.routing import ProtocolTypeRouter, URLRouter  # noqa isort:skip
 from django_channels_jwt.middleware import JwtAuthMiddlewareStack
 

@@ -9,8 +9,8 @@ class Collection(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name = 'Коллекция'
-        verbose_name_plural = 'Коллекции'
+        verbose_name = "Коллекция"
+        verbose_name_plural = "Коллекции"
 
     def __str__(self):
         return self.name
@@ -24,9 +24,9 @@ class UserCollection(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ['user_id', 'collection_id']
-        verbose_name = 'Коллекция пользователей'
-        verbose_name_plural = 'Коллекции пользователей'
+        unique_together = ["user_id", "collection_id"]
+        verbose_name = "Коллекция пользователей"
+        verbose_name_plural = "Коллекции пользователей"
 
 
 class MuseumCollection(models.Model):
@@ -37,8 +37,8 @@ class MuseumCollection(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Коллекция музея'
-        verbose_name_plural = 'Коллекции музеев'
+        verbose_name = "Коллекция музея"
+        verbose_name_plural = "Коллекции музеев"
 
     def __str__(self):
         return str(self.museum)
@@ -53,11 +53,11 @@ class MuseumCollectionUser(models.Model):
     can_change_item = models.BooleanField(default=False)
 
     class Meta:
-        verbose_name = 'Редактор коллекций музеев'
-        verbose_name_plural = 'Редакторы коллекций музеев'
+        verbose_name = "Редактор коллекций музеев"
+        verbose_name_plural = "Редакторы коллекций музеев"
 
     def __str__(self):
-        return f'{self.collection} | {self.user}'
+        return f"{self.collection} | {self.user}"
 
 
 class CollectionItem(models.Model):
@@ -68,5 +68,5 @@ class CollectionItem(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Изображение коллекций'
-        verbose_name_plural = 'Изображения коллекций'
+        verbose_name = "Изображение коллекций"
+        verbose_name_plural = "Изображения коллекций"

@@ -36,8 +36,12 @@ class ChatConsumer(JsonWebsocketConsumer):
             return
 
         self.accept()
-        self.conversation_name = f"{self.scope['url_route']['kwargs']['conversation_name']}"
-        self.conversation, created = Conversation.objects.get_or_create(name=self.conversation_name)
+        self.conversation_name = (
+            f"{self.scope['url_route']['kwargs']['conversation_name']}"
+        )
+        self.conversation, created = Conversation.objects.get_or_create(
+            name=self.conversation_name
+        )
 
         async_to_sync(self.channel_layer.group_add)(
             self.conversation_name,
